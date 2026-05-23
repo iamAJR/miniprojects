@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glow Up - AI Hairstyle Try-On</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <!-- HEADER -->
+        <header>
+            <h1>Glow Up</h1>
+            <p>AI Hairstyle Try-On</p>
+        </header>
+
+        <!-- STATE 1: HOME (Input & Presets) -->
+        <main id="home-view" class="view active">
+            <section class="camera-pane">
+                <video id="webcam" autoplay playsinline></video>
+                <canvas id="snapshot-canvas"></canvas>
+                <img id="preview-image" class="hidden" alt="Selfie Preview" />
+                <div class="camera-controls">
+                    <button id="btn-start-camera" class="secondary-btn">Start Camera</button>
+                    <button id="btn-capture" class="primary-btn hidden">Capture</button>
+                    <button id="btn-retake" class="secondary-btn hidden">Retake</button>
+                    <label for="file-upload" class="secondary-btn upload-btn">Upload Photo</label>
+                    <input type="file" id="file-upload" accept="image/png, image/jpeg" class="hidden">
+                </div>
+            </section>
+
+            <section class="presets">
+                <h2>Choose your style</h2>
+                <div class="preset-grid">
+                    <div class="preset-card" data-preset="classic_bangs">
+                        <h3>Classic Bangs</h3>
+                    </div>
+                    <div class="preset-card" data-preset="voluminous_afro">
+                        <h3>Voluminous Afro</h3>
+                    </div>
+                    <div class="preset-card" data-preset="neon_mohawk">
+                        <h3>Neon Mohawk</h3>
+                    </div>
+                    <div class="preset-card" data-preset="retro_mullet">
+                        <h3>Retro Mullet</h3>
+                    </div>
+                </div>
+            </section>
+
+            <div class="action-bar">
+                <button id="btn-tryon" class="primary-btn pulse" disabled>Try it on</button>
+            </div>
+        </main>
+
+        <!-- STATE 2: LOADING -->
+        <div id="loading-overlay" class="hidden">
+            <div class="animation-container">
+                <div class="scissors">✂️</div>
+                <div class="dryer">💨</div>
+            </div>
+            <p>The stylist is working...</p>
+        </div>
+
+        <!-- STATE 3: RESULT -->
+        <main id="result-view" class="view hidden">
+            <section class="comparison-stage">
+                <div class="img-container">
+                    <span class="badge">Before</span>
+                    <img id="result-before" src="" alt="Before" />
+                </div>
+                <div class="img-container">
+                    <span class="badge">After</span>
+                    <img id="result-after" src="" alt="After" />
+                </div>
+            </section>
+
+            <section class="feedback-card glassmorphic">
+                <div class="rating-header">
+                    <span id="vibe-rating">?/10</span>
+                </div>
+                <p id="stylist-note">"..."</p>
+            </section>
+
+            <div class="action-bar">
+                <button id="btn-reset" class="secondary-btn">Try Another Style</button>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

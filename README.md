@@ -4,3 +4,4 @@
 - created a beginner front end, html css
 - simple password generator using scripting
 - Linux System Health Monitor
+- AI Hairstyle try-on
